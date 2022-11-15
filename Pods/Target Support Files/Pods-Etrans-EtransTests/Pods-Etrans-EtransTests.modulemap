@@ -1,0 +1,6 @@
+framework module Pods_Etrans_EtransTests {
+  umbrella header "Pods-Etrans-EtransTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

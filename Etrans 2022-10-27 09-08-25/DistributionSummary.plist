@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Etrans.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>2FB7FD794F92E5D59B4554E269DC8B4C1B191099</string>
+				<key>dateExpires</key>
+				<string>2023/06/08</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>2FB7FD794F92E5D59B4554E269DC8B4C1B191099</string>
+						<key>dateExpires</key>
+						<string>2023/06/08</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>FBLPromises.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BETFGY29Z7</string>
+						<key>name</key>
+						<string>Eunim Tahk</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>1.2.12</string>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>2FB7FD794F92E5D59B4554E269DC8B4C1B191099</string>
+						<key>dateExpires</key>
+						<string>2023/06/08</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>GoogleUtilities.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BETFGY29Z7</string>
+						<key>name</key>
+						<string>Eunim Tahk</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>6.7.2</string>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>2FB7FD794F92E5D59B4554E269DC8B4C1B191099</string>
+						<key>dateExpires</key>
+						<string>2023/06/08</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Protobuf.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BETFGY29Z7</string>
+						<key>name</key>
+						<string>Eunim Tahk</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>3.17.0</string>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>2FB7FD794F92E5D59B4554E269DC8B4C1B191099</string>
+						<key>dateExpires</key>
+						<string>2023/06/08</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>nanopb.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BETFGY29Z7</string>
+						<key>name</key>
+						<string>Eunim Tahk</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>1.30906.0</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>BETFGY29Z7.kr.co.klnet.etrans.Etrans</string>
+				<key>aps-environment</key>
+				<string>production</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>BETFGY29Z7</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Etrans.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>38c606fa-ff27-4b30-bfce-0b68a26bc944</string>
+				<key>dateExpires</key>
+				<string>2023/08/10</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: kr.co.klnet.etrans.Etrans</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>BETFGY29Z7</string>
+				<key>name</key>
+				<string>Eunim Tahk</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0.6</string>
+		</dict>
+	</array>
+</dict>
+</plist>
