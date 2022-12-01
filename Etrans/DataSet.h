@@ -34,7 +34,8 @@
 @property (nonatomic, strong) NSString *deviceTokenID;
 @property(nonatomic) Boolean isAutoLogin;
 @property (nonatomic, strong) NSString *isMode;
-@property (nonatomic, strong) NSString *connectUrl;
+@property (nonatomic, strong) NSString *mainURL;
+@property (nonatomic, strong) NSString *pushURL;
 
 
 +(DataSet *)sharedDataSet;

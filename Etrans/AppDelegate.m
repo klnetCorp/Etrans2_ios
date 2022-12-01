@@ -10,7 +10,9 @@
 #import "MainViewController.h"
 #import "DataSet.h"
 
-@import Firebase;
+#if FB_SONARKIT_ENABLED
+#import "Firebase.h"
+#endif
 @import FirebaseMessaging;
 @import UserNotifications;
 
@@ -71,7 +73,9 @@
             // For iOS 10 data message (sent via FCM)
             // asm
             // [START configure_firebase]
-            [FIRApp configure];
+            if ([FIRApp defaultApp] == nil) {
+                [FIRApp configure];
+            }
             // [END configure_firebase]
 
             // [START set_messaging_delegate]
@@ -414,7 +418,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
 // To enable direct data messages, you can set [Messaging messaging].shouldEstablishDirectChannel to YES.
 - (void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
-    NSLog(@"Received data message: %@", remoteMessage.appData);
+    //NSLog(@"Received data message: %@", remoteMessage.appData);
 }
 // [END ios_10_data_message]
 
@@ -425,7 +429,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 // Receive data message on iOS 10 devices while app is in the foreground.
 - (void)applicationReceivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage {
     // Print full message
-    NSLog(@"remoteMessage : %@", [remoteMessage appData]);
+    //NSLog(@"remoteMessage : %@", [remoteMessage appData]);
 }
 #endif
 // [END ios_10_data_message_handling]

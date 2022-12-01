@@ -10,7 +10,7 @@
 
 @implementation DataSet
 
-@synthesize isLogin, userid, pushDict, isAutoLogin, isBackground, deviceTokenID;
+@synthesize isLogin, userid, pushDict, isAutoLogin, isBackground, deviceTokenID, isMode, mainURL, pushURL;
 
 -(void)CommonSetting {
     

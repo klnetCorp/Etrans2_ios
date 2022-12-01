@@ -171,7 +171,8 @@ UIViewController *mainViewController;
    
     BOOL rootingCheck = [self checkRooting];
     [DataSet sharedDataSet].isMode = IS_MODE;
-    [DataSet sharedDataSet].connectUrl = MAIN_URL;
+    [DataSet sharedDataSet].mainURL = MAIN_URL;
+    [DataSet sharedDataSet].pushURL = PUSH_URL;
     
     if ([[DataSet sharedDataSet].isMode isEqualToString:@"D"]) {
         //개발 테스트용은 앱스토어 배포가 아니므로 무조건 통과시킨다.
@@ -330,10 +331,11 @@ UIViewController *mainViewController;
     
     NSString *requestString = [[request URL] absoluteString];
     NSLog(@"requestString : %@", requestString);
-    
 
-    NSString *isMode = IS_MODE;
-    NSString *connectUrl = MAIN_URL;
+    //접속경로
+    NSString *mainURL = [DataSet sharedDataSet].mainURL;
+    NSString *pushURL = [DataSet sharedDataSet].pushURL;
+    
     
     if ([requestString hasSuffix:@".pdf"] || [requestString hasSuffix:@".txt"] || [requestString hasSuffix:@".PDF"] || [requestString hasSuffix:@".TXT"] || [requestString hasSuffix:@".TEXT"] || [requestString hasSuffix:@".text"]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:requestString]];
@@ -346,7 +348,7 @@ UIViewController *mainViewController;
         NSString *jsString = [jsDataArray objectAtIndex:1];
         
         NSLog(@"urlback : %@", jsString);
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",connectUrl, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:1.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:1.0f];
         [webView01 loadRequest:request];
         
         return NO;
@@ -362,7 +364,7 @@ UIViewController *mainViewController;
         
         if ([jsString1 isEqualToString:@"success"]) {
             [DataSet sharedDataSet].userid = jsString2;
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do",connectUrl]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do",mainURL]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
             [webView01 loadRequest:request];
         } else { //실패했을 경우
             [iv_intro setHidden:YES];
@@ -379,10 +381,11 @@ UIViewController *mainViewController;
         NSString *jsString1 = [jsDataArray objectAtIndex:0];
         NSString *jsString2 = [jsDataArray objectAtIndex:1];
         NSString *jsString3 = [jsDataArray objectAtIndex:2];
-        
+#if DEBUG
         NSLog(@"hybridappautoregister id : %@", jsString1);
         NSLog(@"deviceKey : %@", jsString2);
         NSLog(@"isAutoLogin : %@", jsString3);
+#endif
         
         [DataSet sharedDataSet].userid = jsString1;
         [DataSet sharedDataSet].isLogin = [jsString3 isEqualToString:@"Y"];
@@ -413,8 +416,8 @@ UIViewController *mainViewController;
         
         [authData writeToFile:path atomically:YES];
         
-        //NSLog(@"/newmobile/main.do : %@", connectUrl);
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do",connectUrl]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:1.0f];
+        //NSLog(@"/newmobile/main.do : %@", mainURL);
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do",mainURL]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:1.0f];
         
         [webView01 loadRequest:request];
         return NO;
@@ -437,16 +440,19 @@ UIViewController *mainViewController;
             [webView01 stringByEvaluatingJavaScriptFromString:@"javascript:setConfigIsAutoLogin('Y');"];
         }
         
-        NSString *myDeviceListUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=get_my_devices&appid=%@&userid=%@",PUSH_URL, APPID, [DataSet sharedDataSet].userid];
+        NSString *myDeviceListUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=get_my_devices&appid=%@&userid=%@",pushURL, APPID, [DataSet sharedDataSet].userid];
         NSData* bRetS = [self httpRequest:myDeviceListUrl];
         if(bRetS != nil) {
             NSError* error;
+#if DEBUG
             NSLog(@"myDeviceListUrl :%@", myDeviceListUrl);
+#endif
             NSDictionary* jsonDeviceList = [NSJSONSerialization JSONObjectWithData:bRetS
                                                                            options:kNilOptions
                                                                              error:&error];
+#if DEBUG
             NSLog(@"jsonDeviceList :%@", jsonDeviceList);
-            
+#endif
             
             NSString* nsJsonDeviceList=  [[NSString alloc] initWithData:bRetS
                                                                encoding:NSUTF8StringEncoding];
@@ -454,13 +460,14 @@ UIViewController *mainViewController;
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setDeviceResult(%@, '%@');", nsJsonDeviceList, [OpenUDID value]]];
             
             
-            NSString *myServiceListUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=get_setting_info&appid=%@&userid=%@",PUSH_URL, APPID, [DataSet sharedDataSet].userid];
+            NSString *myServiceListUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=get_setting_info&appid=%@&userid=%@",pushURL, APPID, [DataSet sharedDataSet].userid];
             bRetS = [self httpRequest:myServiceListUrl];
             NSDictionary* jsonServiceList = [NSJSONSerialization JSONObjectWithData:bRetS
                                                                             options:kNilOptions
                                                                               error:&error];
-            
+#if DEBUG
             NSLog(@"jsonServiceList :%@", jsonServiceList);
+#endif
             NSString* nsJsonerviceList=  [[NSString alloc] initWithData:bRetS
                                                                encoding:NSUTF8StringEncoding];
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:getServiceResult(%@);", nsJsonerviceList]];
@@ -518,7 +525,7 @@ UIViewController *mainViewController;
         NSArray *jsDataArray = [requestString componentsSeparatedByString:@"hybridappaurlback://"];
         NSString *jsString = [jsDataArray objectAtIndex:1];
         
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",connectUrl, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
         [webView01 loadRequest:request];
         
         return NO;
@@ -531,13 +538,17 @@ UIViewController *mainViewController;
         NSString *jsString = [jsDataArray objectAtIndex:1];
         
         NSError *error;
-        NSString *myPushUnregistUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=delete_app&appid=%@&did=%@",PUSH_URL, APPID, jsString];
+        NSString *myPushUnregistUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=delete_app&appid=%@&did=%@",pushURL, APPID, jsString];
         NSData* bRetS = [self httpRequest:myPushUnregistUrl];
+#if DEBUG
         NSLog(@"myPushRegistUrl :%@", myPushUnregistUrl);
+#endif
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:bRetS
                                                              options:kNilOptions
                                                                error:&error];
+#if DEBUG
         NSLog(@"json :%@", json);
+#endif
         
         NSString* nsJson=  [[NSString alloc] initWithData:bRetS
                                                  encoding:NSUTF8StringEncoding];
@@ -558,8 +569,9 @@ UIViewController *mainViewController;
             uname(&systemInfo);
             
             NSString *model = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-            
+#if DEBUG
             NSLog(@"model : %@", model);
+#endif
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *path = [documentsDirectory stringByAppendingPathComponent:@"jpp.plist"];
@@ -576,12 +588,16 @@ UIViewController *mainViewController;
             NSString *token = (NSString *)[jppData objectForKey:@"token"];
             NSString *myPushRegistUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=regist_app&appid=%@&did=%@&userid=%@&os=fcm_ios&token=%@&model_name=%@",PUSH_URL, APPID, [OpenUDID value], [DataSet sharedDataSet].userid,token, model];
             NSData* bRetS = [self httpRequest:myPushRegistUrl];
+#if DEBUG
             NSLog(@"myPushRegistUrl :%@", myPushRegistUrl);
+#endif
             
             NSDictionary* json = [NSJSONSerialization JSONObjectWithData:bRetS
                                                                  options:kNilOptions
                                                                    error:&error];
+#if DEBUG
             NSLog(@"json :%@", json);
+#endif
             NSString* nsJson=  [[NSString alloc] initWithData:bRetS encoding:NSUTF8StringEncoding];
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setPushOnOff(%@, 'ON');", nsJson]];
@@ -589,14 +605,15 @@ UIViewController *mainViewController;
 
         } else {
             NSError *error;
-            NSString *myPushUnregistUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=delete_app&appid=%@&did=%@",PUSH_URL, APPID, [OpenUDID value]];
+            NSString *myPushUnregistUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=delete_app&appid=%@&did=%@",pushURL, APPID, [OpenUDID value]];
             NSData* bRetS = [self httpRequest:myPushUnregistUrl];
             NSLog(@"myPushRegistUrl :%@", myPushUnregistUrl);
             NSDictionary* json = [NSJSONSerialization JSONObjectWithData:bRetS
                                                                 options:kNilOptions
                                                                   error:&error];
+#if DEBUG
             NSLog(@"json :%@", json);
-            
+#endif
             NSString* nsJson=  [[NSString alloc] initWithData:bRetS
                                                      encoding:NSUTF8StringEncoding];
             
@@ -638,14 +655,15 @@ UIViewController *mainViewController;
                 if([key isEqualToString:@"klnetId"]) klnetId = val;
                 if([key isEqualToString:@"notiRecvDay"]) notiRecvDay = val;
             }
-            NSString *mysettingServiceUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=register_setting_service&appid=%@&pushServiceCode=%@&regUser=%@&notiFromHHmm=%@&notiToHHmm=%@&useYn=%@&klnetId=%@&notiRecvDay=%@",PUSH_URL, APPID, pushServiceCode, [DataSet sharedDataSet].userid, startTime, endTime, useYn, klnetId, notiRecvDay];
+            NSString *mysettingServiceUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=register_setting_service&appid=%@&pushServiceCode=%@&regUser=%@&notiFromHHmm=%@&notiToHHmm=%@&useYn=%@&klnetId=%@&notiRecvDay=%@",pushURL, APPID, pushServiceCode, [DataSet sharedDataSet].userid, startTime, endTime, useYn, klnetId, notiRecvDay];
             NSData* bRetS = [self httpRequest:mysettingServiceUrl];
             NSLog(@"mysettingServiceUrl :%@", mysettingServiceUrl);
             NSDictionary* json = [NSJSONSerialization JSONObjectWithData:bRetS
                                                                  options:kNilOptions
                                                                    error:&error];
+#if DEBUG
             NSLog(@"json :%@", json);
-
+#endif
             
         }
         
@@ -660,10 +678,11 @@ UIViewController *mainViewController;
         NSString *jsString1 = [jsDataArray objectAtIndex:0];
         NSString *jsString2 = [jsDataArray objectAtIndex:1];
         NSString *jsString3 = [jsDataArray objectAtIndex:2];
-        
+#if DEBUG
         NSLog(@"startTime : %@", jsString1);
         NSLog(@"endTime : %@", jsString2);
         NSLog(@"notiRecvDay : %@", jsString3);
+#endif
         
         if([jsString1 isEqualToString:@""]) {
            jsString1=@"0000";
@@ -676,13 +695,17 @@ UIViewController *mainViewController;
         }
         
         NSError *error;
-        NSString *myPushSettingTimeUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=update_setting_time&appid=%@&regUser=%@&notiFromHHmm=%@&notiToHHmm=%@&notiRecvDay=%@",PUSH_URL, APPID, [DataSet sharedDataSet].userid,jsString1, jsString2, jsString3];
+        NSString *myPushSettingTimeUrl=[NSString stringWithFormat:@"%@/ccsFcm.do?cmd=update_setting_time&appid=%@&regUser=%@&notiFromHHmm=%@&notiToHHmm=%@&notiRecvDay=%@",pushURL, APPID, [DataSet sharedDataSet].userid,jsString1, jsString2, jsString3];
         NSData* bRetS = [self httpRequest:myPushSettingTimeUrl];
+#if DEBUG
         NSLog(@"myPushSettingTimeUrl :%@", myPushSettingTimeUrl);
+#endif
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:bRetS
                                                              options:kNilOptions
                                                                error:&error];
+#if DEBUG
         NSLog(@"json :%@", json);
+#endif
         
         NSString* nsJson=  [[NSString alloc] initWithData:bRetS
                                                  encoding:NSUTF8StringEncoding];
@@ -698,9 +721,10 @@ UIViewController *mainViewController;
         
         NSString *jsString1 = [jsDataArray objectAtIndex:0];
         NSString *jsString2 = [jsDataArray objectAtIndex:1];
-        
+#if DEBUG
         NSLog(@"type : %@", jsString1);
         NSLog(@"updateYn : %@", jsString2);
+#endif
         
         if([jsString2 isEqualToString:@"Y"]) {
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setPushReceiveAll('%@', '%@', '%@');", [DataSet sharedDataSet].userid, APPID, [OpenUDID value]]];
@@ -717,16 +741,19 @@ UIViewController *mainViewController;
         NSString *jsString = [jsDataArray objectAtIndex:1];
         
         if ([[DataSet sharedDataSet].isMode isEqualToString:@"D"]) {
-            connectUrl = MAIN_REAL_URL;
+            mainURL = MAIN_REAL_URL;
+            pushURL = PUSH_REAL_URL;
             [DataSet sharedDataSet].isMode = @"P";
         } else {
-            connectUrl = MAIN_TEST_URL;
+            mainURL = MAIN_TEST_URL;
+            pushURL = PUSH_TEST_URL;
             [DataSet sharedDataSet].isMode = @"D";
         }
-        [DataSet sharedDataSet].connectUrl = connectUrl;
+        [DataSet sharedDataSet].mainURL = mainURL;
+        [DataSet sharedDataSet].pushURL = pushURL;
         [DataSet sharedDataSet].isLogin = false;
     
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",connectUrl, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
         [webView01 loadRequest:request];
         
         return NO;
@@ -757,7 +784,7 @@ UIViewController *mainViewController;
         
         [DataSet sharedDataSet].isLogin = false;
     
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",connectUrl, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
         [webView01 loadRequest:request];
         
         return NO;
@@ -787,7 +814,9 @@ UIViewController *mainViewController;
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
             
             if(myString == nil) myString = @"";
+#if DEBUG
             NSLog(@"myString : %@", myString);
+#endif
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:goCarrierView(%@)", myString]];
         } else {
@@ -805,10 +834,11 @@ UIViewController *mainViewController;
         NSString *code = [jsDataArray objectAtIndex:1];
         NSString *name = [jsDataArray objectAtIndex:2];
         name = [name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
+#if DEBUG
         NSLog(@"type : %@", type);
         NSLog(@"code : %@", code);
         NSLog(@"name : %@", name);
+#endif
         
         if(name == nil) name = @"";
 
@@ -835,8 +865,9 @@ UIViewController *mainViewController;
             
             [jsonarr addObject:tmpDic];
             [json setObject:jsonarr forKey:@"list"];
-            
+#if DEBUG
             NSLog(@"json : %@", json);
+#endif
             
             NSFileManager *fileManager = [NSFileManager defaultManager];
             if (![fileManager fileExistsAtPath: path])
@@ -898,7 +929,9 @@ UIViewController *mainViewController;
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
             
             if(myString == nil) myString = @"";
+#if DEBUG
             NSLog(@"myString : %@", myString);
+#endif
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:goTerminalView(%@)", myString]];
         } else {
@@ -916,10 +949,11 @@ UIViewController *mainViewController;
         NSString *code = [jsDataArray objectAtIndex:1];
         NSString *name = [jsDataArray objectAtIndex:2];
         name = [name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
+#if DEBUG
         NSLog(@"type : %@", type);
         NSLog(@"code : %@", code);
         NSLog(@"name : %@", name);
+#endif
         
         if(name == nil) name = @"";
         
@@ -946,8 +980,9 @@ UIViewController *mainViewController;
             
             [jsonarr addObject:tmpDic];
             [json setObject:jsonarr forKey:@"list"];
-            
+#if DEBUG
             NSLog(@"json : %@", json);
+#endif
             
             NSFileManager *fileManager = [NSFileManager defaultManager];
             if (![fileManager fileExistsAtPath: path])
@@ -1008,7 +1043,9 @@ UIViewController *mainViewController;
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
             
             if(myString == nil) myString = @"";
+#if DEBUG
             NSLog(@"myString : %@", myString);
+#endif
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:goPodView(%@)", myString]];
         } else {
@@ -1027,9 +1064,11 @@ UIViewController *mainViewController;
         NSString *name = [jsDataArray objectAtIndex:2];
         name = [name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
+#if DEBUG
         NSLog(@"type : %@", type);
         NSLog(@"code : %@", code);
         NSLog(@"name : %@", name);
+#endif
         
         if(name == nil) name = @"";
         
@@ -1057,7 +1096,9 @@ UIViewController *mainViewController;
             [jsonarr addObject:tmpDic];
             [json setObject:jsonarr forKey:@"list"];
             
+#if DEBUG
             NSLog(@"json : %@", json);
+#endif
             
             NSFileManager *fileManager = [NSFileManager defaultManager];
             if (![fileManager fileExistsAtPath: path])
@@ -1118,7 +1159,9 @@ UIViewController *mainViewController;
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
             
             if(myString == nil) myString = @"";
+#if DEBUG
             NSLog(@"myString : %@", myString);
+#endif
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setComboCarrierCode(%@)", myString]];
         } else {
@@ -1145,7 +1188,9 @@ UIViewController *mainViewController;
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
             
             if(myString == nil) myString = @"";
+#if DEBUG
             NSLog(@"myString : %@", myString);
+#endif
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setComboPodCode(%@)", myString]];
         } else {
@@ -1171,7 +1216,9 @@ UIViewController *mainViewController;
             NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
             
             if(myString == nil) myString = @"";
+#if DEBUG
             NSLog(@"myString : %@", myString);
+#endif
             
             [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setComboTerminalCode(%@)", myString]];
         } else {
@@ -1185,7 +1232,7 @@ UIViewController *mainViewController;
     if ([requestString hasPrefix:@"hybridappgourl://"]) {
         NSArray *jsDataArray = [requestString componentsSeparatedByString:@"hybridappgourl://"];
         NSString *jsString = [jsDataArray objectAtIndex:1];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",connectUrl, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
         [webView01 loadRequest:request];
         return NO;
     }
@@ -1195,7 +1242,7 @@ UIViewController *mainViewController;
     if ([requestString hasPrefix:@"hybridappgoweburl://"]) {
         NSArray *jsDataArray = [requestString componentsSeparatedByString:@"hybridappgoweburl://"];
         NSString *url = [jsDataArray objectAtIndex:1];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",connectUrl, url]]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, url]]];
         return NO;
     }
     
@@ -1217,9 +1264,11 @@ UIViewController *mainViewController;
         if(vid == nil) vid = @"";
 
         NSString* diviceId = [OpenUDID value];
+#if DEBUG
         NSLog(@"DeviceId :%@", diviceId);
         NSLog(@"vid :%@", vid);
         NSLog(@"vAutoLogin :%@", vAutoLogin);
+#endif
         
         [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setIsAutoLogin('%@','%@','%@');",vAutoLogin, diviceId, vid]];
         
@@ -1263,9 +1312,11 @@ UIViewController *mainViewController;
         if(vid == nil) vid = @"";
 
         NSString* diviceId = [OpenUDID value];
+#if DEBUG
         NSLog(@"DeviceId :%@", diviceId);
         NSLog(@"vid :%@", vid);
         NSLog(@"vAutoLogin :%@", vAutoLogin);
+#endif
         
         [webView01 stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"javascript:setIsAutoLogin('%@','%@','%@');",vAutoLogin,diviceId, vid]];
         if(isAutoLogin && vid.length != 0) {
@@ -1306,11 +1357,11 @@ UIViewController *mainViewController;
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     NSLog(@"error.code : %ld", (long)error.code);
-    NSLog( @"didFailLoadWithError - [DataSet sharedDataSet].connectUrl : %@", [DataSet sharedDataSet].connectUrl);
+    NSLog( @"didFailLoadWithError - [DataSet sharedDataSet].mainURL : %@", [DataSet sharedDataSet].mainURL);
     if(error.code == 999 || error.code == -999) {
         
     } else if(error.code == -1001 || error.code == 1001) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do", [DataSet sharedDataSet].connectUrl]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do", [DataSet sharedDataSet].mainURL]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
         [webView01 loadRequest:request];
     } else {
         [iv_intro setHidden:YES];
@@ -1335,11 +1386,13 @@ UIViewController *mainViewController;
 }
 
 - (void) callPush {
+#if DEBUG
     NSLog(@"isMain : %hhu", isMain);
+#endif
     
     if([DataSet sharedDataSet].isLogin) {
         if(!isMain) {
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do",[DataSet sharedDataSet].connectUrl ]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/newmobile/main.do",[DataSet sharedDataSet].mainURL ]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
             [webView01 loadRequest:request];
             isPushMain = true;
         } else {
