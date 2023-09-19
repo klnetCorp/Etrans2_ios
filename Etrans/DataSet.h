@@ -10,14 +10,14 @@
 #import <UIKit/UIKit.h>
 
 #define IS_MODE @"D";  //초기접속모드 D-개발,P-운영
-//#define MAIN_URL @"https://testetrans.klnet.co.kr"
-//#define MAIN_URL @"https://devetrans.klnet.co.kr"
 #define MAIN_URL @"https://devetrans.klnet.co.kr"
+//#define MAIN_URL @"https://etrans.klnet.co.kr"
 #define MAIN_REAL_URL @"https://etrans.klnet.co.kr"
 #define MAIN_TEST_URL @"https://devetrans.klnet.co.kr"
 
 
-#define PUSH_URL @"https://push.plism.com"
+//#define PUSH_URL @"https://push.plism.com"
+#define PUSH_URL @"https://testpushde.plism.com"
 #define PUSH_REAL_URL @"https://push.plism.com"
 #define PUSH_TEST_URL @"https://testpush.plism.com"
 #define APPID @"METRANS2"

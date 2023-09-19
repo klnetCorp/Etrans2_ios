@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34CE31B080F7453115A3FF81 /* Pods_Etrans_EtransUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C58CBFDB0D4D093DCFA9EBAA /* Pods_Etrans_EtransUITests.framework */; };
-		3DF514E8D6338C8E47DA77CF /* Pods_Etrans.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C9491BB9B0C19F87411E19 /* Pods_Etrans.framework */; };
+		1CF549A19B169A1EB4817F6F /* Pods_Etrans_EtransUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD688B10BCB710ECD499E07 /* Pods_Etrans_EtransUITests.framework */; };
+		2765740E6A0FD365675A79FE /* Pods_Etrans_EtransTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E076F95741FB6CB89004C674 /* Pods_Etrans_EtransTests.framework */; };
 		A2070E00206221450015FD2C /* carriercode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2070DFF206221450015FD2C /* carriercode.plist */; };
 		A2070E02206251980015FD2C /* terminalcode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2070E01206251980015FD2C /* terminalcode.plist */; };
 		A2070E04206251B10015FD2C /* podcode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2070E03206251B10015FD2C /* podcode.plist */; };
@@ -19,7 +19,6 @@
 		A21950B22032D80500A84E99 /* Etrans.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A21950B02032D80500A84E99 /* Etrans.xcdatamodeld */; };
 		A21950B42032D80500A84E99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21950B32032D80500A84E99 /* Assets.xcassets */; };
 		A21950B72032D80500A84E99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21950B52032D80500A84E99 /* LaunchScreen.storyboard */; };
-		A21950C22032D80500A84E99 /* EtransTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A21950C12032D80500A84E99 /* EtransTests.m */; };
 		A21950CD2032D80500A84E99 /* EtransUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A21950CC2032D80500A84E99 /* EtransUITests.m */; };
 		A21950DD2032D83300A84E99 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A21950DB2032D83300A84E99 /* MainViewController.m */; };
 		A21950DE2032D83300A84E99 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A21950DC2032D83300A84E99 /* MainViewController.xib */; };
@@ -30,7 +29,7 @@
 		A22C88B520468386002658E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A22C88B420468386002658E7 /* GoogleService-Info.plist */; };
 		A22F86AF2047E98B0018DB7E /* jpp.plist in Resources */ = {isa = PBXBuildFile; fileRef = A22F86AE2047E98B0018DB7E /* jpp.plist */; };
 		A22F86B32047EA7A0018DB7E /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = A22F86B22047EA7A0018DB7E /* OpenUDID.m */; };
-		C8CBC7A0B55CC0E1D6BEC79C /* Pods_Etrans_EtransTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A7D5B9E4B6648EE25BE8A1 /* Pods_Etrans_EtransTests.framework */; };
+		CA3367AF67D3CCFE77340CB3 /* Pods_Etrans.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF809E5AB7EECFFA2158A9B2 /* Pods_Etrans.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +50,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C3356F95963180901C3DD64 /* Pods-Etrans.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans.debug.xcconfig"; path = "Target Support Files/Pods-Etrans/Pods-Etrans.debug.xcconfig"; sourceTree = "<group>"; };
-		10C9491BB9B0C19F87411E19 /* Pods_Etrans.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Etrans.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E03EBC6D202F947A0B2B6BB /* Pods-Etrans-EtransUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransUITests.release.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests.release.xcconfig"; sourceTree = "<group>"; };
-		61733B74E3602F2BE7B06192 /* Pods-Etrans-EtransUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransUITests.debug.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		643F8086D6FAC47190E17356 /* Pods-Etrans-EtransTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransTests.debug.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests.debug.xcconfig"; sourceTree = "<group>"; };
+		17605CAA911F840D922A1757 /* Pods-Etrans.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans.debug.xcconfig"; path = "Target Support Files/Pods-Etrans/Pods-Etrans.debug.xcconfig"; sourceTree = "<group>"; };
 		888BE1962849DC9A0077C39A /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888BE1982849DCAF0077C39A /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888BE19A2849DCCD0077C39A /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8892067A2941F21000BFCC4F /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8892067C2941F22400BFCC4F /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8892067E2941F22E00BFCC4F /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		889206802941F23200BFCC4F /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		889206822941F23500BFCC4F /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		889206842941F23B00BFCC4F /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		889206862941F24000BFCC4F /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		889206882941F24400BFCC4F /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8892068C2941F25700BFCC4F /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2070DFF206221450015FD2C /* carriercode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = carriercode.plist; sourceTree = "<group>"; };
 		A2070E01206251980015FD2C /* terminalcode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = terminalcode.plist; sourceTree = "<group>"; };
 		A2070E03206251B10015FD2C /* podcode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = podcode.plist; sourceTree = "<group>"; };
@@ -92,10 +96,14 @@
 		A22F86AE2047E98B0018DB7E /* jpp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jpp.plist; sourceTree = "<group>"; };
 		A22F86B12047EA7A0018DB7E /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
 		A22F86B22047EA7A0018DB7E /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
-		C58CBFDB0D4D093DCFA9EBAA /* Pods_Etrans_EtransUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Etrans_EtransUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E184EBE53366841E972A4BFE /* Pods-Etrans.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans.release.xcconfig"; path = "Target Support Files/Pods-Etrans/Pods-Etrans.release.xcconfig"; sourceTree = "<group>"; };
-		E1A7D5B9E4B6648EE25BE8A1 /* Pods_Etrans_EtransTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Etrans_EtransTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDF5C11BE65711B8C67D6916 /* Pods-Etrans-EtransTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransTests.release.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests.release.xcconfig"; sourceTree = "<group>"; };
+		AAC757B05EB6C6710C1B1BD6 /* Pods-Etrans-EtransUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransUITests.release.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ACD688B10BCB710ECD499E07 /* Pods_Etrans_EtransUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Etrans_EtransUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C126D8FEFC13F0E89D7DF090 /* Pods-Etrans.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans.release.xcconfig"; path = "Target Support Files/Pods-Etrans/Pods-Etrans.release.xcconfig"; sourceTree = "<group>"; };
+		CF809E5AB7EECFFA2158A9B2 /* Pods_Etrans.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Etrans.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7AF5BD3BC19282E178ED857 /* Pods-Etrans-EtransTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransTests.release.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests.release.xcconfig"; sourceTree = "<group>"; };
+		E076F95741FB6CB89004C674 /* Pods_Etrans_EtransTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Etrans_EtransTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E34270F85AFCA41C1E6D3103 /* Pods-Etrans-EtransUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransUITests.debug.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7C157424759DC67234608C6 /* Pods-Etrans-EtransTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Etrans-EtransTests.debug.xcconfig"; path = "Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF514E8D6338C8E47DA77CF /* Pods_Etrans.framework in Frameworks */,
+				CA3367AF67D3CCFE77340CB3 /* Pods_Etrans.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8CBC7A0B55CC0E1D6BEC79C /* Pods_Etrans_EtransTests.framework in Frameworks */,
+				2765740E6A0FD365675A79FE /* Pods_Etrans_EtransTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34CE31B080F7453115A3FF81 /* Pods_Etrans_EtransUITests.framework in Frameworks */,
+				1CF549A19B169A1EB4817F6F /* Pods_Etrans_EtransUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,12 +137,12 @@
 		10109514AE01E4D640A14B0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0C3356F95963180901C3DD64 /* Pods-Etrans.debug.xcconfig */,
-				E184EBE53366841E972A4BFE /* Pods-Etrans.release.xcconfig */,
-				643F8086D6FAC47190E17356 /* Pods-Etrans-EtransTests.debug.xcconfig */,
-				FDF5C11BE65711B8C67D6916 /* Pods-Etrans-EtransTests.release.xcconfig */,
-				61733B74E3602F2BE7B06192 /* Pods-Etrans-EtransUITests.debug.xcconfig */,
-				1E03EBC6D202F947A0B2B6BB /* Pods-Etrans-EtransUITests.release.xcconfig */,
+				17605CAA911F840D922A1757 /* Pods-Etrans.debug.xcconfig */,
+				C126D8FEFC13F0E89D7DF090 /* Pods-Etrans.release.xcconfig */,
+				E7C157424759DC67234608C6 /* Pods-Etrans-EtransTests.debug.xcconfig */,
+				D7AF5BD3BC19282E178ED857 /* Pods-Etrans-EtransTests.release.xcconfig */,
+				E34270F85AFCA41C1E6D3103 /* Pods-Etrans-EtransUITests.debug.xcconfig */,
+				AAC757B05EB6C6710C1B1BD6 /* Pods-Etrans-EtransUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -239,12 +247,21 @@
 		E624BD6852DC614CE0F3CB63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8892068C2941F25700BFCC4F /* FBLPromises.framework */,
+				889206882941F24400BFCC4F /* nanopb.framework */,
+				889206862941F24000BFCC4F /* GoogleUtilities.framework */,
+				889206842941F23B00BFCC4F /* GoogleDataTransport.framework */,
+				889206822941F23500BFCC4F /* FirebaseMessaging.framework */,
+				889206802941F23200BFCC4F /* FirebaseInstallations.framework */,
+				8892067E2941F22E00BFCC4F /* FirebaseCoreDiagnostics.framework */,
+				8892067C2941F22400BFCC4F /* FirebaseCore.framework */,
+				8892067A2941F21000BFCC4F /* FirebaseCore.framework */,
 				888BE19A2849DCCD0077C39A /* GoogleToolboxForMac.framework */,
 				888BE1982849DCAF0077C39A /* nanopb.framework */,
 				888BE1962849DC9A0077C39A /* GoogleToolboxForMac.framework */,
-				10C9491BB9B0C19F87411E19 /* Pods_Etrans.framework */,
-				E1A7D5B9E4B6648EE25BE8A1 /* Pods_Etrans_EtransTests.framework */,
-				C58CBFDB0D4D093DCFA9EBAA /* Pods_Etrans_EtransUITests.framework */,
+				CF809E5AB7EECFFA2158A9B2 /* Pods_Etrans.framework */,
+				E076F95741FB6CB89004C674 /* Pods_Etrans_EtransTests.framework */,
+				ACD688B10BCB710ECD499E07 /* Pods_Etrans_EtransUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,11 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A21950D12032D80500A84E99 /* Build configuration list for PBXNativeTarget "Etrans" */;
 			buildPhases = (
-				866C9C8BA6031BB12DDE72ED /* [CP] Check Pods Manifest.lock */,
+				C7D47562A42B71DD790DC3BA /* [CP] Check Pods Manifest.lock */,
 				A219509D2032D80500A84E99 /* Sources */,
 				A219509E2032D80500A84E99 /* Frameworks */,
 				A219509F2032D80500A84E99 /* Resources */,
-				F4A8026D7E86D3FD05A624D0 /* [CP] Embed Pods Frameworks */,
+				154133B90145CB17D3125B0C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,11 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A21950D42032D80500A84E99 /* Build configuration list for PBXNativeTarget "EtransTests" */;
 			buildPhases = (
-				5B385CAF694875975A8CDB71 /* [CP] Check Pods Manifest.lock */,
+				B8A026060E883D8B7ED4644F /* [CP] Check Pods Manifest.lock */,
 				A21950B92032D80500A84E99 /* Sources */,
 				A21950BA2032D80500A84E99 /* Frameworks */,
 				A21950BB2032D80500A84E99 /* Resources */,
-				D2DD3901656A16D24F8482FB /* [CP] Embed Pods Frameworks */,
+				0373E3BD7C583CBB7D3A144F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,11 +312,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A21950D72032D80500A84E99 /* Build configuration list for PBXNativeTarget "EtransUITests" */;
 			buildPhases = (
-				0089BF6B0DFE588424B0F277 /* [CP] Check Pods Manifest.lock */,
+				2A3AF0DFB868CD36D94078BC /* [CP] Check Pods Manifest.lock */,
 				A21950C42032D80500A84E99 /* Sources */,
 				A21950C52032D80500A84E99 /* Frameworks */,
 				A21950C62032D80500A84E99 /* Resources */,
-				25699C3DFD23FEA76CC11EDC /* [CP] Embed Pods Frameworks */,
+				44B2E48BCC64FA6BCC56566B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,7 +334,7 @@
 		A21950992032D80500A84E99 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = juis;
 				TargetAttributes = {
 					A21950A02032D80500A84E99 = {
@@ -348,11 +365,10 @@
 				};
 			};
 			buildConfigurationList = A219509C2032D80500A84E99 /* Build configuration list for PBXProject "Etrans" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -405,7 +421,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0089BF6B0DFE588424B0F277 /* [CP] Check Pods Manifest.lock */ = {
+		0373E3BD7C583CBB7D3A144F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		154133B90145CB17D3125B0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Etrans/Pods-Etrans-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Etrans/Pods-Etrans-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Etrans/Pods-Etrans-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A3AF0DFB868CD36D94078BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -427,31 +477,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		25699C3DFD23FEA76CC11EDC /* [CP] Embed Pods Frameworks */ = {
+		44B2E48BCC64FA6BCC56566B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransUITests/Pods-Etrans-EtransUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5B385CAF694875975A8CDB71 /* [CP] Check Pods Manifest.lock */ = {
+		B8A026060E883D8B7ED4644F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -473,7 +516,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		866C9C8BA6031BB12DDE72ED /* [CP] Check Pods Manifest.lock */ = {
+		C7D47562A42B71DD790DC3BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -493,54 +536,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2DD3901656A16D24F8482FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Etrans-EtransTests/Pods-Etrans-EtransTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4A8026D7E86D3FD05A624D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Etrans/Pods-Etrans-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Etrans/Pods-Etrans-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -564,7 +559,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A21950C22032D80500A84E99 /* EtransTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,15 +614,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -652,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -669,15 +672,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -695,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -705,7 +717,7 @@
 		};
 		A21950D22032D80500A84E99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C3356F95963180901C3DD64 /* Pods-Etrans.debug.xcconfig */;
+			baseConfigurationReference = 17605CAA911F840D922A1757 /* Pods-Etrans.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Etrans/Etrans.entitlements;
@@ -718,12 +730,30 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = Etrans/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -749,7 +779,7 @@
 		};
 		A21950D32032D80500A84E99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E184EBE53366841E972A4BFE /* Pods-Etrans.release.xcconfig */;
+			baseConfigurationReference = C126D8FEFC13F0E89D7DF090 /* Pods-Etrans.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Etrans/Etrans.entitlements;
@@ -762,10 +792,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = Etrans/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -791,12 +826,17 @@
 		};
 		A21950D52032D80500A84E99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 643F8086D6FAC47190E17356 /* Pods-Etrans-EtransTests.debug.xcconfig */;
+			baseConfigurationReference = E7C157424759DC67234608C6 /* Pods-Etrans-EtransTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = UY3AVXPNNN;
 				INFOPLIST_FILE = EtransTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.klnet.etrans.EtransTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Etrans.app/Etrans";
@@ -805,12 +845,17 @@
 		};
 		A21950D62032D80500A84E99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDF5C11BE65711B8C67D6916 /* Pods-Etrans-EtransTests.release.xcconfig */;
+			baseConfigurationReference = D7AF5BD3BC19282E178ED857 /* Pods-Etrans-EtransTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = UY3AVXPNNN;
 				INFOPLIST_FILE = EtransTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.klnet.etrans.EtransTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Etrans.app/Etrans";
@@ -819,11 +864,16 @@
 		};
 		A21950D82032D80500A84E99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61733B74E3602F2BE7B06192 /* Pods-Etrans-EtransUITests.debug.xcconfig */;
+			baseConfigurationReference = E34270F85AFCA41C1E6D3103 /* Pods-Etrans-EtransUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = UY3AVXPNNN;
 				INFOPLIST_FILE = EtransUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.klnet.etrans.EtransUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = Etrans;
@@ -832,11 +882,16 @@
 		};
 		A21950D92032D80500A84E99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E03EBC6D202F947A0B2B6BB /* Pods-Etrans-EtransUITests.release.xcconfig */;
+			baseConfigurationReference = AAC757B05EB6C6710C1B1BD6 /* Pods-Etrans-EtransUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = UY3AVXPNNN;
 				INFOPLIST_FILE = EtransUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.klnet.etrans.EtransUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = Etrans;
