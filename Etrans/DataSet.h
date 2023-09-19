@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define IS_MODE @"D";  //초기접속모드 D-개발,P-운영
-#define MAIN_URL @"https://devetrans.klnet.co.kr"
-//#define MAIN_URL @"https://etrans.klnet.co.kr"
+#define IS_MODE @"P";  //초기접속모드 D-개발,P-운영
+//#define MAIN_URL @"https://devetrans.klnet.co.kr"
+#define MAIN_URL @"https://etrans.klnet.co.kr"
 #define MAIN_REAL_URL @"https://etrans.klnet.co.kr"
 #define MAIN_TEST_URL @"https://devetrans.klnet.co.kr"
 
