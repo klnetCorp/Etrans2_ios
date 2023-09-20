@@ -782,6 +782,13 @@ UIViewController *mainViewController;
         //[authData setObject:[NSNumber numberWithBool:NO] forKey:@"isautologin"];
         //[authData writeToFile:path atomically:YES];
         
+        //[2023.09.19 취약점조치] 캐시데이터 삭제
+        NSSet* nSet= [NSSet setWithArray:@[WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache, WKWebsiteDataTypeCookies]];
+        NSDate *nDate=[NSDate dateWithTimeIntervalSince1970:0];
+        [WKWebsiteDataStore.defaultDataStore removeDataOfTypes:nSet modifiedSince:nDate completionHandler:^{
+            //delete callback
+        }];
+        
         [DataSet sharedDataSet].isLogin = false;
     
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",mainURL, jsString]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:0.0f];
@@ -1465,6 +1472,12 @@ UIViewController *mainViewController;
                          @"/System/Library/LaunchDaemons/com.saurik.Cydia.Startup.plist",
                          @"/private/var/tmp/cydia.log",
                          @"/private/var/lib/cydia",
+                         @"/Applications/FlyJB.app/FlyJB",
+                         @"/Library/MobileSubstrate/DynamicLibraries/FlyJBX.dylib",
+                         @"/Library/MobileSubstrate/DynamicLibraries/FlyJBX.plist",
+                         @"/usr/lib/FJDobby",
+                         @"/usr/lib/FJHooker.dylib",
+                         @"/var/mobile/Library/Preferences/FJMemory",
                          nil];
     if(!TARGET_IPHONE_SIMULATOR) {
         for (NSString *filePath in checkList) {

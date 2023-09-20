@@ -514,6 +514,13 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    
+    //[2023.09.19 취약점조치] 캐시데이터 삭제
+    NSSet* nSet= [NSSet setWithArray:@[WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache, WKWebsiteDataTypeCookies]];
+    NSDate *nDate=[NSDate dateWithTimeIntervalSince1970:0];
+    [WKWebsiteDataStore.defaultDataStore removeDataOfTypes:nSet modifiedSince:nDate completionHandler:^{
+        //delete callback
+    }];
 }
 
 
